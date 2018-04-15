@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+{% block head %}
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% block bootstrap %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock bootstrap %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>Multiuser Cook Book</title>
+</head>
+{% endblock head %}
+
+<body>
+     <body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/all_recipes">Cook & Bake</a>
+</div>
+<ul class="nav navbar-nav navbar-right">
+{% if request.user.is_authenticated %}
+
+    <li><a href="{% url 'user_recipes' %}">Your profile</a></li>
+                    <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"> </span>Log out</a></li>
+{% else %}
+                     <li><a href="{% url 'register' %}" ><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in">Log in</a></li></ul>
+{% endif %}
+    </div>
+<div class="container">
+    <div class="row">
+      {% block content %}
+      {% endblock %}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+    {% block content %}
+
+<h2>Add your recipe and share it with others</h2>
+    <table class="my-5 table table-borderless text-muted">
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_table }}
+     <tr>
+            <td></td>
+<td>
+    <input class="btn btn-secondary"type="submit" value="Modify recipe">
+</td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+</div>
+<div></div>
+
+{% endblock content %}

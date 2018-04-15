@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ user }}</h2>
+<h4>You added: {{ recipes|length }} recipes</h4>
+
+<p>
+  <a href="/add_recipe"><button type="button" class="btn btn-secondary btn-md">Add new recipe</button></a>
+</p>
+<div>
+  <table class="table table-hover">
+    {% for recipe in recipes %}
+      <tr>
+    <td><a href="/recipe_details/{{ recipe.id }}">{{ recipe.title}}</a></td>
+          <td><a target="_blank" href="{{ recipe.photo.url }}">
+        <img src="{{ recipe.photo.url }}" alt="{{ recipe.title }}" height="200">
+    </td>
+        <td><a href="/modify_recipe/{{ recipe.id }}"><button type="button" class="btn btn-secondary btn-xs">Edit</button></a></td>
+        <td><a href="/delete_recipe/{{ recipe.id }}"><button type="button" class="btn btn-primary btn-xs">Delete</button></a></td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

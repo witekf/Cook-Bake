@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ recipe.title }} by {{recipe.author}}</h2>
+<h5><a href="/season_recipes/{{ recipe.recipe_season }}">{{ recipe.get_recipe_season_display }}</a>: <a href="/category_recipes/{{ recipe.category }}">{{ recipe.get_category_display }}</a></h5>
+<div>
+    <a target="_blank" href="{{ recipe.photo.url }}"></a>
+<img src="{{ recipe.photo.url }}" alt="{{ recipe.title }}" width="300" height="200">
+</div><div>
+<p>Ingredients: {{ recipe.ingredients }}</p>
+<p>
+  <i>Description: {{ recipe.description }}</i>
+</p></div>
+{% endblock %}

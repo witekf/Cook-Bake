@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+    {% block content %}
+
+<td>
+    <table class="table table-hover">
+    {% for recipe in recipes %}
+<tr>
+    <td>
+<a target="_blank" href="/recipe_details/{{ recipe.id }}">
+
+<img class=card-body src="{{ recipe.photo.url }}" alt="{{ recipe.title }}" height="100">
+</td>
+        <td><a class=card-title href="/recipe_details/{{ recipe.id }}">{{ recipe.title }}</a>{% endfor %}</td>
+</div>
+
+{% endblock content %}

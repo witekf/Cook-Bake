@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>{{ recipe.get_recipe_season_display }}</h3>
+
+<div>
+  <table class="table table-hover">
+    {% for recipe in recipes %}
+      <tr>
+        <td><a href="/recipe_details/{{ recipe.id }}">{{ recipe.title}}</a></td>
+          <td><a target="_blank" href="{{ recipe.photo.url }}">
+<img src="{{ recipe.photo.url }}" alt="{{ recipe.title }}" width="300" height="200">
+</td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}
